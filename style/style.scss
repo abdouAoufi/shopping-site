@@ -1,0 +1,13 @@
+@import 'header';
+@import 'global';
+@import 'variables';
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html,
+body {
+    box-sizing: border-box;
+}
