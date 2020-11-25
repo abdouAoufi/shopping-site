@@ -1,205 +1,432 @@
-@import 'global';
-@import 'variables';
-@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+@import "global";
+@import "variables";
 
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;400&family=Roboto&display=swap');
 
-$colors : (black : #222,
-    white : #FFF,
-    blue : #005DFF,
-);
+$colors: (black: #222,
+  white: #fff,
+  blue: #005dff);
 
-$padding : 0.5rem;
-$border : 1px soloid magenta;
-$phone : 480px;
-$desktop : 1024px;
+$padding: 0.5rem;
+$border: 1px soloid magenta;
+$phone: 680px;
+$desktop: 1024px;
 
 @mixin phone {
-    @media (max-width: #{$phone}) {
-        @content;
-    }
-}
-
-@mixin desktop {
-    @media (min-width: #{$desktop}) {
-        @content;
-    }
+  @media (max-width : #{$desktop}) {
+    @content;
+  }
 }
 
 body {
-    font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
 }
 
 header {
-    position: relative;
+  position: relative;
+  background-color: white;
 }
 
 .inner_holder {
-    display: block;
+  display: block;
 }
 
 .lgn-holder {
-    display: flex;
-    width: 100%;
-    height: auto;
-    justify-content: space-between;
-    background: map-get($map: $colors, $key: black);
+  display: flex;
+  width: 100%;
+  height: auto;
+  justify-content: space-between;
+  background: map-get($map: $colors, $key: black);
 
-    .inner-holder {
-        padding: 0 8rem;
+  .inner-holder {
+    padding: 0 8rem;
 
-        @include phone {
-            padding: 0 4rem;
-        }
-
-        a {
-            line-height: 2;
-            font-size: 0.7rem;
-            color: map-get($map: $colors, $key:white);
-
-            &:hover {
-                text-decoration: underline;
-            }
-        }
-
-        p {
-            display: inline;
-            color: white;
-        }
-
-
+    @include phone {
+      padding: 0 4rem;
     }
 
+    a {
+      line-height: 2;
+      font-size: 0.7rem;
+      color: map-get($map: $colors, $key: white);
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+
+    p {
+      display: inline;
+      color: white;
+    }
+  }
 }
 
 .main-holder {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0.8rem 4rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.8rem 4rem;
+
+  @include phone {
+    padding: 0.8rem 2rem;
+  }
+
+  .logo {
+    width: 150px;
+    display: block;
 
     @include phone {
-        padding: 0.8rem 2rem;
+      order: 2;
     }
+  }
 
-    .logo {
-        width: 150px;
-        display: block;
-
-        @include phone {
-            order: 2;
-        }
+  .option {
+    a {
+      margin-right: 1rem;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      color: map-get($map: $colors, $key: black);
     }
-
-    .option {
-        a {
-            margin-right: 1rem;
-            font-size: 0.75rem;
-            text-transform: uppercase;
-            color: map-get($map: $colors, $key: black);
-        }
-
-        @include phone {
-            display: none;
-        }
-    }
-
-    .burger {
-        display: none;
-        font-size: 1.3rem;
-
-        @include phone {
-            display: block;
-            order: 3;
-        }
-    }
-
-    .shopping {
-        display: none;
-        font-size: 1.3rem;
-
-        @include phone {
-            display: block;
-            order: 1;
-        }
-    }
-
-}
-
-.show {
 
     @include phone {
-        display: block;
+      display: none;
     }
+  }
 
-    @include desktop() {
-        display: block;
-    }
-}
-
-.big {
+  .burger {
     display: none;
+    font-size: 1.3rem;
 
     @include phone {
-        display: block;
+      display: block;
+      order: 3;
     }
-}
+  }
 
+  .shopping {
+    display: none;
+    font-size: 1.3rem;
+
+    @include phone {
+      display: block;
+      order: 1;
+    }
+  }
+}
 
 .option-mobile {
-    display: none;
+  display: none;
 
-    .container {
-        // border: 1px solid red;
-        padding: 1rem 1rem 0 1rem;
-        margin: auto;
+  .container {
+    padding: 1rem 1rem 0 1rem;
+    margin: auto;
 
-        a {
-            display: block;
-            margin-top: 0.5rem;
-            padding-bottom: 0.7rem;
-            text-align: left;
-            font-size: 0.600rem;
-            text-transform: uppercase;
-            border-bottom: 1px solid #c4c4c4a4;
-        }
-
-        a:not(:last-child) {
-
-            margin-bottom: 0.3rem;
-
-        }
-
-
+    a {
+      display: block;
+      margin-top: 0.5rem;
+      padding-bottom: 0.7rem;
+      text-align: left;
+      font-size: 0.6rem;
+      text-transform: uppercase;
+      border-bottom: 1px solid #c4c4c4a4;
     }
 
+    a:not(:last-child) {
+      margin-bottom: 0.3rem;
+    }
+  }
 }
 
 .top-hero {
-    position: relative;
-    display: grid;
-    width: 100%;
-    height: 17.5rem;
-    background-image: url('/images/cover.jpg');
-    background-size: cover;
-    background-position: center center;
+  position: relative;
+  display: grid;
+  width: 100%;
+  height: 17.5rem;
+  background-image: url("/images/cover.jpg");
+  background-size: cover;
+  background-position: center center;
 
+  .content {
+    padding: 4.5rem 2rem;
+    color: white;
 
-    .content {
-        padding: 4.5rem 2rem;
-        color: white;
-
-        h1 {
-            margin-bottom: .4rem;
-            width: 100%;
-            font-size: 2.1rem;
-            font-weight: 400;
-        }
-
-        a {
-            color: white;
-            text-decoration: underline;
-        }
+    h1 {
+      margin-bottom: 0.4rem;
+      width: 100%;
+      font-size: 2.1rem;
+      font-weight: 400;
     }
 
+    a {
+      color: white;
+      text-decoration: underline;
+    }
+  }
+}
+
+.present-papa {
+  background-color: white;
+
+  .title {
+    padding: 3rem 0;
+  }
+}
+
+.product-container {
+  width: 85%;
+  position: relative;
+  display: grid;
+  margin: auto auto;
+  padding: 0;
+  grid-template-columns: 1fr 1fr 1fr;
+  column-gap: 0.5rem;
+  row-gap: 2.0rem;
+  place-items: center;
+
+  @include phone {
+    width: 100%;
+  }
+}
+
+.product {
+  transition: all 250ms ease-in-out;
+
+  &:hover {
+    transform: scale(1.03);
+  }
+
+  .pro-img {
+    width: 16rem;
+    height: 20rem;
+    margin-bottom: 0.5rem;
+
+    img {
+      max-width: 100%;
+      max-height: 100%;
+      width: 100%;
+      height: 100%;
+
+
+    }
+
+    @include phone {
+      width: 8rem;
+      height: 12rem;
+    }
+  }
+
+  .pro-title {
+    margin-bottom: 0.4rem;
+  }
+
+  .pro-desc {
+    font-size: 0.85rem;
+    margin-bottom: 0.9rem;
+    font-weight: 500;
+  }
+
+  .pro-price {
+    margin-bottom: 1rem;
+  }
+}
+
+
+.transparent {
+  height: 18.5rem;
+  display: grid;
+  place-items: center;
+
+  a {
+    color: #fff;
+    font-weight: 400;
+    font-size: 2rem;
+    transition: all 150ms ease-in-out;
+
+    &:hover {
+      transform: scale(1.03);
+    }
+
+    @include phone {
+      font-size: 1.5rem;
+
+    }
+  }
+}
+
+.bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url(/images/bg.jpg);
+  background-size: cover;
+  background-position: bottom bottom;
+  z-index: -1;
+}
+
+
+.instrgam-container {
+  width: 100%;
+  background: #fff;
+
+
+
+
+
+  .inner-container {
+    width: 100%;
+    height: 13.2rem;
+    display: flex;
+    max-width: 100%;
+
+    @include phone {
+      height: 6.2rem;
+
+    }
+  }
+
+
+
+}
+
+
+.insta-element {
+  position: relative;
+  height: 100%;
+  max-width: 20%;
+  display: block;
+  transition: all 500ms ease-in-out;
+  cursor: pointer;
+
+  .hov {
+    position: absolute;
+    max-width: 100%;
+    max-height: 100%;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    bottom: 0;
+    display: flex;
+    opacity: 0;
+    background-color: rgba(0, 0, 0, 0.3);
+
+    img {
+      height: 10%;
+      width: 10%;
+      margin: auto;
+
+      @include phone {
+        height: 20%;
+        width: 20%;
+      }
+    }
+  }
+
+  img {
+    max-width: 100%;
+    max-height: 100%;
+    height: 100%;
+    width: 100%;
+  }
+
+  &:hover .hov {
+    opacity: 1;
+  }
+
+}
+
+footer {
+  background-color: #fff;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  padding: 2.5rem 4rem;
+
+  @include phone {
+    grid-template-columns: 1fr;
+  }
+
+  .costumer {
+    flex: 1;
+    padding: 1rem;
+
+    p {
+      margin-bottom: 1rem;
+      font-size: 1.1rem;
+      font-weight: 400;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.678);
+    }
+
+    .links a {
+      display: block;
+      margin-bottom: 0.3rem;
+      text-transform: uppercase;
+      font-size: 0.9rem;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+
+  .about {
+    flex: 1;
+    padding: 1rem;
+
+    .title,
+    p {
+      margin-bottom: 1rem;
+      font-size: 1.1rem;
+      font-weight: 400;
+      padding-bottom: 1rem;
+    }
+
+    .title {
+      border-bottom: 1px solid rgba(0, 0, 0, 0.678);
+    }
+
+
+
+
+  }
+
+
+  .newsletter {
+    flex: 1;
+    padding: 1rem;
+
+    p {
+      margin-bottom: 1rem;
+      font-size: 1.1rem;
+      font-weight: 400;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.678);
+    }
+
+    .content {
+      display: flex;
+      padding: 1.5rem 0;
+
+      #em {
+        font-size: 1rem;
+        padding: .5rem;
+        height: 1.8rem;
+        border: 0;
+        background-color: #EEE;
+      }
+
+
+
+      #sb {
+        width: 7.5rem;
+        border: 0;
+        background-color: #222;
+        font-size: 1.2rem;
+        font-weight: 600;
+        color: #fff;
+        cursor: pointer;
+      }
+    }
+  }
 }
